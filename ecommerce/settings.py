@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env(‘SECRET_KEY’)
+SECRET_KEY = 'django-insecure-q9xl&1o--%27w=105dt$(xoeiir)rx&0us0i#v@m0e&7vp7-c#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -98,14 +98,17 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 #     }
 # }
 
+import pymysql
+pymysql.version_info = (1, 4, 6, 'final', 0)
+pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env(‘DB_NAME’),
-        'USER':env(‘USER_NAME’),
-        'PASSWORD': env(‘DB_PASS’),
-        'HOST': 'sql.freedb.tech',  # By default, 'localhost' should work
-        'PORT': 3306 # By default, MySQL us\es port 3306
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'EgQosPAw3J1kkEY7q9WC',
+        'HOST': 'containers-us-west-106.railway.app',  # By default, 'localhost' should work
+        'PORT': 7271,  # By default, MySQL uses port 3306
     }
 }
 
